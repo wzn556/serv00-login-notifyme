@@ -113,7 +113,7 @@ async def send_notifyme_message(message):
 			"ttl": 86400,
 			"priority": "normal",
 			"data": {
-				"title": "serv00/ct8登录处理完成",
+				"title": "处理完成",
 				"body": message,
 				"group": "serv00",
 				"bigText": True
