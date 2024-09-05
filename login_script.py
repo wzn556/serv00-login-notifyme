@@ -106,7 +106,7 @@ async def send_notifyme_message(message):
     url = f"https://send.notifyme-f7507.521933.xyz"
     payload = {
 		"data": {
-			"to": NotifyMe_Token,
+			"to": NOTIFYME_TOKEN,
 			"ttl": 86400,
 			"priority": "normal",
 			"data": {
