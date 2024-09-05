@@ -7,9 +7,8 @@ import random
 import requests
 import os
 
-# 从环境变量中获取 Telegram Bot Token 和 Chat ID
-TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
-TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+# 从环境变量中获取 NOTIFYME Token
+NOTIFYME_TOKEN = os.getenv('NOTIFYME_TOKEN')
 
 def format_to_iso(date):
     return date.strftime('%Y-%m-%d %H:%M:%S')
@@ -100,24 +99,22 @@ async def main():
         await delay_time(delay)
         
     message += f'所有{serviceName}账号登录完成！'
-    await send_telegram_message(message)
+    await send_notifyme_message(message)
     print(f'所有{serviceName}账号登录完成！')
 
-async def send_telegram_message(message):
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+async def send_notifyme_message(message):
+    url = f"https://send.notifyme-f7507.521933.xyz"
     payload = {
-        'chat_id': TELEGRAM_CHAT_ID,
-        'text': message,
-        'reply_markup': {
-            'inline_keyboard': [
-                [
-                    {
-                        'text': '问题反馈❓',
-                        'url': 'https://t.me/yxjsjl'
-                    }
-                ]
-            ]
-        }
+		"data": {
+			"to": NotifyMe_Token,
+			"ttl": 86400,
+			"priority": "normal",
+			"data": {
+				"title": "处理完毕",
+				"body": message,
+				"group": "serv00"
+			}
+		}
     }
     headers = {
         'Content-Type': 'application/json'
@@ -125,9 +122,9 @@ async def send_telegram_message(message):
     try:
         response = requests.post(url, json=payload, headers=headers)
         if response.status_code != 200:
-            print(f"发送消息到Telegram失败: {response.text}")
+            print(f"发送消息到NotifyMe失败: {response.text}")
     except Exception as e:
-        print(f"发送消息到Telegram时出错: {e}")
+        print(f"发送消息到NotifyMe时出错: {e}")
 
 if __name__ == '__main__':
     asyncio.run(main())
