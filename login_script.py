@@ -75,7 +75,8 @@ async def main():
         accounts = json.loads(accounts_json)
     except Exception as e:
         print(f'读取 accounts.json 文件时出错: {e}')
-		await send_notifyme_message(f'读取 accounts.json 文件时出错: {e}')
+		message = f'读取 accounts.json 文件时出错: {e}'
+		await send_notifyme_message(message)
         return
 
     for account in accounts:
