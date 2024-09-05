@@ -66,7 +66,8 @@ async def login(username, password, panel):
             await page.close()
 
 async def main():
-    global message = ''
+    global message
+	message = ''
 
     try:
         async with aiofiles.open('accounts.json', mode='r', encoding='utf-8') as f:
