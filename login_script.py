@@ -66,8 +66,7 @@ async def login(username, password, panel):
             await page.close()
 
 async def main():
-    global message
-    message = 'serv00&ct8自动化脚本运行\n'
+    global message = ''
 
     try:
         async with aiofiles.open('accounts.json', mode='r', encoding='utf-8') as f:
@@ -75,6 +74,7 @@ async def main():
         accounts = json.loads(accounts_json)
     except Exception as e:
         print(f'读取 accounts.json 文件时出错: {e}')
+		await send_notifyme_message(f'读取 accounts.json 文件时出错: {e}')
         return
 
     for account in accounts:
@@ -98,7 +98,7 @@ async def main():
         delay = random.randint(1000, 8000)
         await delay_time(delay)
         
-    message += f'所有{serviceName}账号登录完成！'
+    #message += f'所有{serviceName}账号登录完成！'
     await send_notifyme_message(message)
     print(f'所有{serviceName}账号登录完成！')
 
@@ -110,9 +110,10 @@ async def send_notifyme_message(message):
 			"ttl": 86400,
 			"priority": "normal",
 			"data": {
-				"title": "处理完毕",
+				"title": "serv00/ct8登录处理完成",
 				"body": message,
-				"group": "serv00"
+				"group": "serv00",
+				"bigText": true
 			}
 		}
     }

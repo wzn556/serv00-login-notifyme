@@ -1,13 +1,15 @@
-## serv00与ct8自动化批量保号，每3天自动登录一次面板，并且发送消息到Telegram
+## serv00与ct8自动化批量保号，每3天自动登录一次面板，并且发送消息到NotifyMe
 
 ## 视频教程看这里
 [免费白嫖10年VPS服务器serv00 并且一键部署自己的专属自建Vless节点 ｜小白教程｜自动化批量保号](https://youtu.be/QnlzpvDl_mo)
 
+> [!Caution]
+>
+> 视频中添加的`TELEGRAM_BOT_TOKEN`和`TELEGRAM_CHAT_ID`，修改为添加`NOTIFYME_TOKEN`。
+
 利用github Action以及python脚本实现
 
-🙏🙏🙏点个Star！！Star！！Star！！
-
-交流群：https://t.me/yxjsjl
+原项目地址：https://github.com/yixiu001/serv00-login
 
 ### 将代码fork到你的仓库并运行的操作步骤
 
@@ -52,12 +54,12 @@
 #### 示例 Secrets 和获取方法总结
 
 - **NOTIFYME_TOKEN**
-    
+  
     - 示例值: `dEHbLerlTyy_U_W1VDbPRv:APA91bGmZH9G70laPXXyjHoOKaWj1m_IcdP46dtkWYTQ6G7VhMZajV2v-AYE-5kzcN_tez3oBGJ_suqJFXNJDyTjK0VbjutvuLk4oVWhRvnvvkgzPOwhoPCBfzdQ2EKGnmXeG-7wlHcr`
     - 获取方法: 在`NotifyMe/设置/分享Token`获取Token。
     
 - **ACCOUNTS_JSON**
-    
+  
     - 示例值:
       ```json
       [
@@ -74,6 +76,3 @@
 - **更新和删除**: 如果需要更新或删除 Secrets，可以通过仓库的 Secrets 页面进行管理。
 
 通过以上步骤，你就可以成功将代码 fork 到你的仓库下并运行它了。如果需要进一步的帮助或有其他问题，请随时告知！
-
-## 🌟🌟🌟Star！！！走起
-[![Stargazers over time](https://starchart.cc/wzn556/serv00-login-notifyme.svg?variant=adaptive)](https://starchart.cc/yixiu001/serv00-login)
